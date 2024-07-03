@@ -23,7 +23,7 @@ const MovieUpload = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5000/api/movies', {
+      const response = await axios.post('https://movies-book-1.onrender.com/api/movies', {
         ...movie,
         links: movie.links.split(',').map(link => link.trim()),
       });
