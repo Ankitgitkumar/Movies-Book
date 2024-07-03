@@ -10,7 +10,7 @@ const MovieDetail = () => {
   useEffect(() => {
     const fetchMovie = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/api/movies?title=${title}`);
+        const response = await axios.get(`https://movies-book-1.onrender.com/api/movies?title=${title}`);
         if (response.status === 200) {
           setMovie(response.data[0]);
         }
