@@ -1,0 +1,92 @@
+/* src/App.css */
+/* src/App.css */
+body{
+  /* position:relative;
+  z-index:1; */
+  background-image: url("https://img.freepik.com/free-photo/movie-background-collage_23-2149876028.jpg");
+  background-size:cover;
+  
+
+}
+
+
+
+.movie-search h1{
+  background: linear-gradient(#141e30,#243b55);
+  margin-left: 8px;
+}
+.movie-search{
+
+text-align: center;
+  margin-top: 50px;
+  margin-left: 405px;
+   margin-bottom: 60px; 
+  /* position:relative;
+  z-index:; */
+  background-color: #ccc;
+  padding:5px 15px 15px 0px;
+  border-radius: 15px;
+  
+height:220px;
+width:500px;
+
+}
+.movie-search:hover{
+  box-shadow: 2px 2px 12px white;
+  
+  
+}
+
+.movie-search form {
+  margin-bottom: 20px;
+
+}
+
+.movie-search input {
+  padding: 10px;
+  /* margin-right: 10px; */
+  margin-left: 10px;
+  
+  margin-bottom: 8px;
+  width: 90%;
+  border-radius: 10px;
+  
+}
+
+.movie-search button {
+  padding: 10px;
+  margin-left: 8px;
+  margin-top: 25px;
+  background: linear-gradient(45deg,#D45769,#E69D45);
+  width: 100%;
+
+}
+
+
+
+
+.movie-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.movie-item {
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin: 10px;
+  width: 200px;
+}
+
+.trailer iframe {
+  margin-top: 20px;
+}
+
+.movie-item ul {
+  list-style: none;
+  padding: 0;
+}
+
+.movie-item li {
+  margin: 5px 0;
+}
