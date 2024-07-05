@@ -53,12 +53,18 @@ app.post('/api/movies', async (req, res) => {
 //   }
 // });
 
-app.get('/api/movies', async (req, res) => {
+
+
+ app.get('/api/movies', async (req, res) => {
   try {
-      
-    const movie = await Movie.findOne({ title: req.params.title });
-    if (movie) {
-      res.status(200).send(movie);
+    let movies;
+    if (req.query.title) {
+      movies = await Movie.find({ title: { $regex: new RegExp('^' + req.query.title + '$', 'i') } });
+    } else {
+      movies = await Movie.find();
+    }
+    if (movies.length > 0) {
+      res.status(200).send(movies);
     } else {
       res.status(404).send({ message: 'Movie not found' });
     }
@@ -69,22 +75,8 @@ app.get('/api/movies', async (req, res) => {
 
 
 
-// app.get('/api/trailer', async (req, res) => {
-//   const query = req.query.title + " trailer";
-//   try {
-//     const response = await axios.get(`https://www.youtube.com/results?search_query=${query}`);
-//     const $ = cheerio.load(response.data);
-//     const videoId = $('a[href*="/watch"]').first().attr('href').split('v=')[1];
-//     if (videoId) {
-//       const url = `https://www.youtube.com/embed/${videoId}`;
-//       res.status(200).send({ url });
-//     } else {
-//       res.status(404).send({ message: 'Trailer not found' });
-//     }
-//   } catch (error) {
-//     res.status(500).send(error);
-//   }
-// });
+
+
 
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
