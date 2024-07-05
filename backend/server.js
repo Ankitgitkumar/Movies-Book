@@ -55,7 +55,8 @@ app.post('/api/movies', async (req, res) => {
 
 app.get('/api/movies', async (req, res) => {
   try {
-    const movie = await Movie.findOne({ title: req.params.title });
+      const { title } = req.query;
+    const movie = await Movie.findOne({ title });
     if (movie) {
       res.status(200).send(movie);
     } else {
