@@ -73,6 +73,19 @@ app.post('/api/movies', async (req, res) => {
   }
 });
 
+app.get('/api/movies/:id', async (req, res) => {
+  try {
+    const movie = await Movie.findById(req.params.id);
+    if (movie) {
+      res.status(200).send(movie);
+    } else {
+      res.status(404).send({ message: 'Movie not found' });
+    }
+  } catch (error) {
+    res.status(500).send(error);
+  }
+});
+
 
 
 
